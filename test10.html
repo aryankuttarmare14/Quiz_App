@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+<!-- Include other Firebase services you need -->
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        /* background-color: #b7fdfd; */
+        /* background-color: rgb(20, 20, 28); */
+        background-color: grey;
+        
+
+        font-family: "Poppins", sans-serif;
+      }
+      .maindiv {
+        width: 100vw;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      .innerdiv {
+        /* background-color: white; */
+       background-color: rgba(255, 255, 255, 0.9);
+        width: 40vw;
+        padding: 1rem 3rem;
+        border-radius: 1rem;
+        box-shadow: 0rem 1rem 1rem -0.7rem rgba(0, 0, 0, 0.4);
+      }
+      .innerdiv h2 {
+        font-size: 1.5rem;
+        /* padding: 2rem; */
+        font-weight: 400;
+        margin: 1rem 0 4rem 0;
+      }
+      .innerdiv li {
+        font: small;
+        font-size: 1.3rem;
+        margin-top: 1.3rem;
+        list-style: none;
+      }
+      input {
+        cursor: pointer;
+      }
+      /* #button,
+      .btn {
+        /* padding: 1rem 2.5rem; */
+        /* outline: none;
+        font-size: 1rem;
+        font-size: 400;
+        border: none;
+        margin: auto;
+        display: block; */
+        /* text-transform: uppercase; */
+        /* color: #fff;
+        background-color: #0074e4;
+        margin-top: 4rem;
+        cursor: pointer;
+        border-radius: 4rem;
+      }
+      #button:hover {
+        background-color: #0054a4;
+      }
+      #reset, .btn{
+font-size: 1rem;
+border: none;
+display: block;
+outline: none;
+/* color: white; */
+/* background-color: grey;
+border-radius: 4rem;
+text-align: 4rem;
+position: relative;
+margin-top: 10rem;
+margin: 5rem;
+cursor: pointer; */ 
+/* padding: 1rem 3rem; */
+/* height:rem;
+width: 4rem;
+place-items: center;
+
+      } */ 
+  /* Add this CSS to your existing styles */
+
+/* Create a flex container for the buttons */
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Distribute buttons evenly */
+  margin-top: 2rem; /* Adjust margin as needed */
+  
+}
+
+#reset {
+  /* Style for the Reset button on the left */
+  order: 1; /* Controls the order within the flex container */
+  background-color: rgb(249, 42, 42);
+  color: white;
+  border-radius: 4rem;
+  padding: 1rem 3rem; /* Adjust padding as needed */
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+
+}
+#reset:hover{
+    background-color: rgb(252, 78, 78)
+    
+}
+
+#button {
+  /* Style for the Save & Next button in the middle */
+  order: 2; /* Controls the order within the flex container */
+  background-color: #0074e4;
+  color: #fff;
+  border-radius: 4rem;
+  padding: 1rem 3rem; /* Adjust padding as needed */
+  border: none;
+  text-transform: uppercase;
+}
+#button:hover{
+    background-color: #1b88ed;
+    cursor: pointer;
+}
+
+#previous {
+  /* Style for the Previous button on the right */
+  order: 3; /* Controls the order within the flex container */
+  background-color: #333333;
+  color: white;
+  border-radius: 4rem;
+  padding: 1rem 3rem; /* Adjust padding as needed */
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+#previous:hover{
+    background-color:#404040 ;
+}
+      #showscore {
+        background-color: #dfe6e9;
+        margin-top: 3rem;
+        padding: -2rem -2rem;
+        box-shadow: 0 1rem 1rem -0.7rem rgba(0, 0, 0, 0.4);
+      }
+      #showscore h3 {
+        font-size: 2rem;
+        text-align: center;
+        height: 1rem;
+      }
+
+      /* .showarea{ 
+      display: none;
+       }   */
+       
+      .scoreArea {
+        display: none;
+      }
+      #showScore.btn {
+        margin-top: 2rem;
+        background-color: aqua;
+        color: rgb(29, 16, 29);
+      }
+      #showScore.btn:hover {
+        background-color: aquamarine;
+        color: #fff;
+      }
+      #reload {
+  background-color: #0074e4;
+  color: #fff;
+  border-radius: 4rem;
+  padding: 1rem 3rem;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 1rem; 
+  text-align: center;
+}
+
+#reload:hover {
+  background-color: #1b88ed;
+}
+    </style>
+  </head>
+  <body>
+    <div class="maindiv">
+      <div class="innerdiv">
+        <h2 class="question">Questions come here</h2>
+
+        <ul>
+          <li>
+            <input type="radio" name="answer" id="ans1" class="answer" />
+            <label for="ans1" id="Option1">Answer Option</label>
+          </li>
+          <li>
+            <input type="radio" name="answer" id="ans2" class="answer" />
+            <label for="ans2" id="Option2">Answer Option</label>
+          </li>
+          <li>
+            <input type="radio" name="answer" id="ans3" class="answer" />
+            <label for="ans3" id="Option3">Answer Option</label>
+          </li>
+          <li>
+            <input type="radio" name="answer" id="ans4" class="answer" />
+            <label for="ans4" id="Option4">Answer Option</label>
+          </li>
+        </ul>
+        <div class="button-container">
+        <button id="reset">Reset</button>
+        <button id="button">Save & Next</button>
+        <button id="previous">previous</button>
+        </div>
+
+        <div id="showscore" class="scoreArea"></div>
+      </div>
+    </div>
+
+    <script src="test10.js"></script>
+  </body>
+</html>

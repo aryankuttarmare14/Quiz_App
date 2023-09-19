@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Questions</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding-top: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .inner {
+            padding: 20px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .questionbox {
+            border-radius: 10px;
+            background-color: white;
+            border: 2px solid black;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 0.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Style question numbers */
+        .question-number {
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 0.5rem;
+            color: #0074e4;
+        }
+
+        /* Style individual questions */
+        .question-text {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        #addquestion {
+            background-color: rgb(81, 66, 243);
+            color: white;
+            border-radius: 10rem;
+            padding: 1rem 1.5rem;
+            border: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-align: center;
+            margin-left: 9rem;
+        }
+
+        #addquestion:hover {
+            background-color: rgb(120, 130, 249);
+        }
+
+        #goback {
+            background-color: #0074e4;
+            color: #fff;
+            border-radius: 10rem;
+            padding: 1rem 3rem;
+            border: none;
+            text-transform: uppercase;
+            margin-left: 11rem;
+        }
+
+        #goback:hover {
+            background-color: #1b88ed;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+<main>
+    <div class="container">
+        <div class="inner">
+            <div class="heading">
+                <h1>List of VIII class Student Questions</h1>
+            </div>
+
+            <div id="questions">
+                <!-- Existing questions go here -->
+                <div class="questionbox">
+                    <span class="question-number">Q1:</span>
+                    <span class="question-text">Who is the author of the Harry Potter book series?</span>
+                </div>
+
+                <div class="questionbox">
+                    <span class="question-number">Q2:</span>
+                    <span class="question-text">What is the longest river in the world?</span>
+                </div>
+
+                <div class="questionbox">
+                  <span class="question-number">Q3:</span>
+                  <span class="question-text">What is the largest planet in our solar system?</span>
+              </div>
+
+              <div class="questionbox">
+                <span class="question-number">Q4:</span>
+                <span class="question-text">Who painted the Mona Lisa?</span>
+            </div>
+
+            <div class="questionbox">
+              <span class="question-number">Q5:</span>
+              <span class="question-text">What is the process by which plants convert sunlight into energy called?</span>
+          </div>
+
+          <div class="questionbox">
+            <span class="question-number">Q6:</span>
+            <span class="question-text">Which gas do plants release into the atmosphere as a byproduct of photosynthesis?</span>
+        </div>
+
+        <div class="questionbox">
+          <span class="question-number">Q7:</span>
+          <span class="question-text"> What is the capital city of Australia?</span>
+      </div>
+
+      <div class="questionbox">
+        <span class="question-number">Q8:</span>
+        <span class="question-text">Which planet is often referred to as the 'Morning Star' or 'Evening Star' and is the brightest &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object  in the night sky after the Moon?</span>
+    </div>
+
+    <div class="questionbox">
+      <span class="question-number">Q9:</span>
+      <span class="question-text">Who wrote the famous novel 'The Adventures of Tom Sawyer'?</span>
+  </div>
+
+  <div class="questionbox">
+    <span class="question-number">Q10:</span>
+    <span class="question-text">What is the longest bone in the human body?</span>
+</div>
+
+                <!-- New questions will be added here -->
+            </div>
+
+            <button id="addquestion">Add Question</button>
+            <button id="goback"><a href="buttonpage8.html"> Go Back</a></button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code for managing questions
+        document.addEventListener('DOMContentLoaded', function () {
+            const questionList = document.getElementById('questions');
+            const addQuestionButton = document.getElementById('addquestion');
+            let questionCounter = 10; // Start with Q2 since Q1 is already there
+
+            // Function to add a new question to the list
+            function addQuestionToList(questionText) {
+                questionCounter++;
+                const newQuestion = document.createElement('div');
+                newQuestion.classList.add('questionbox');
+                newQuestion.innerHTML = `
+                    <span class="question-number">Q${questionCounter}:</span>
+                    <span class="question-text">${questionText}</span>
+                `;
+                questionList.appendChild(newQuestion);
+            }
+
+            // Event listener to add a new question
+            addQuestionButton.addEventListener('click', function () {
+                const newQuestionText = prompt("Enter a new question:");
+                if (newQuestionText) {
+                    addQuestionToList(newQuestionText);
+                }
+            });
+        });
+    </script>
+</main>
+</body>
+</html>
